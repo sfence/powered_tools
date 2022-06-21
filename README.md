@@ -3,7 +3,7 @@ Minetest Game mod: powered_tools
 
 Add tools powered by electric from battery and by combustion engine.
 
-Combustion negine powered tools is powered on/off by right click (place) and refueled by left click (use) in powered off state.
+Combustion engine powered tools are poweron/poweroff by right-click (place) and refueled by left-click (use) in poweroff state.
 
 See LICENSE for license information.
 
