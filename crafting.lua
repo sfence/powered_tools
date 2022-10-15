@@ -99,6 +99,32 @@ minetest.register_craft({
     },
   })
 
+minetest.register_craft({
+    output = "powered_tools:algae_collector_electric",
+    recipe = {
+      {materials.battery,materials.steel_strip,"basic_materials:plastic_sheet"},
+      {materials.battery,materials.steel_strip,"pipeworks:pump_off"},
+      {"basic_materials:copper_wire",materials.electric_motor,"basic_materials:gear_steel"},
+    },
+    replacements = {
+      {"basic_materials:copper_wire","basic_materials:empty_spool"},
+    },
+pi
+  })
+
+minetest.register_craft({
+    output = "powered_tools:crumbly_exchanger_electric",
+    recipe = {
+      {materials.battery,materials.steel_strip,"basic_materials:plastic_sheet"},
+      {materials.battery,materials.steel_strip,"pipeworks:sand_tube_1"},
+      {"basic_materials:copper_wire",materials.electric_motor,"basic_materials:gear_steel"},
+    },
+    replacements = {
+      {"basic_materials:copper_wire","basic_materials:empty_spool"},
+    },
+pi
+  })
+
 if minetest.get_modpath("power_generators") then
   if power_generators.settings.enable_petrol_tools then
     minetest.register_craft({
@@ -114,6 +140,22 @@ if minetest.get_modpath("power_generators") then
         recipe = {
           {"",materials.steel_strip,"basic_materials:plastic_sheet"},
           {"",materials.steel_strip,"basic_materials:gear_steel"},
+          {"power_generators:combustion_engine_fuel_tank","power_generators:combustion_engine_two_cylinders","basic_materials:gear_steel"},
+        },
+      })
+    minetest.register_craft({
+        output = "powered_tools:algae_collector_off",
+        recipe = {
+          {"",materials.steel_strip,"basic_materials:plastic_sheet"},
+          {"",materials.steel_strip,"pipeworks:pump_off"},
+          {"power_generators:combustion_engine_fuel_tank","power_generators:combustion_engine_two_cylinders","basic_materials:gear_steel"},
+        },
+      })
+    minetest.register_craft({
+        output = "powered_tools:crumbly_exchanger_off",
+        recipe = {
+          {"",materials.steel_strip,"basic_materials:plastic_sheet"},
+          {"",materials.steel_strip,"pipeworks:sand_tube_1"},
           {"power_generators:combustion_engine_fuel_tank","power_generators:combustion_engine_two_cylinders","basic_materials:gear_steel"},
         },
       })

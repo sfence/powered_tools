@@ -45,5 +45,25 @@ if minetest.get_modpath("default") then
 end
 
 if minetest.get_modpath("hades_core") then
+  -- trees
+  powered_tools.add_chainsaw_node("hades_trees:tree");
+  powered_tools.add_chainsaw_node("hades_trees:pale_tree");
+  powered_tools.add_chainsaw_node("hades_trees:birch_tree");
+  powered_tools.add_chainsaw_node("hades_trees:jungletree");
+  powered_tools.add_chainsaw_node("hades_trees:cjtree");
+  powered_tools.add_chainsaw_node("hades_trees:canvas_tree");
+  powered_tools.add_chainsaw_node("hades_trees:chared_tree");
+end
+
+if minetest.get_modpath("aquaz") then
+  powered_tools.add_algae_coloctor_node("aquaz:orange_alga");
+  powered_tools.add_algae_coloctor_node("aquaz:purple_alga");
+  powered_tools.add_algae_coloctor_node("aquaz:red_alga");
+end
+
+if minetest.get_modpath("hades_aquaz") then
+  powered_tools.add_algae_coloctor_node("hades_aquaz:orange_alga");
+  powered_tools.add_algae_coloctor_node("hades_aquaz:purple_alga");
+  powered_tools.add_algae_coloctor_node("hades_aquaz:red_alga");
 end
 

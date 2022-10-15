@@ -26,6 +26,15 @@ local tool_def = {
     
     sounds = sounds,
     
+  tool_name_break = "powered_tools:chainsaw_body",
+    drops_on_break = {
+      {
+        item = "powered_tools:chainsaw_chain_broken",
+        speed = 5,
+        y = 0.3,
+      },
+    },
+    
     delay_per_use = 4,
   }
 

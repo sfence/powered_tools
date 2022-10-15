@@ -34,5 +34,11 @@ Sounds
 
 `powered_tools_brush_cutter_*` - delivered from brush cutter sound (https://freesound.org/people/prpl.jlyfsh/sounds/625643/) by prpl.jlyfsh, license CC0 1.0
 
+`powered_tools_crumbly_exchanger_*` - delivered from Leaf Blower.aif sound (https://freesound.org/people/m1a2t3z4/sounds/131623/) by m1a2t3z4, license CC0 1.0
 
+`powered_tools_crumbly_exchanger_electric_*` - delivered from leaf blower sound effect sound (https://freesound.org/people/Garuda1982/sounds/570377/) by Garuda1982, license CC BY 4.0
+
+`powered_tools_algae_collector_onuse.ogg` - delivered from Random pack » Aquarium Lobster Filter.wav sound (https://freesound.org/people/vero.marangere/sounds/522987) by vero.marangere, license CC0 1.0
+
+`powered_tools_algae_collector_*` - delivered from Chainsaw » Chainsaw Second Start and Idle.waw sound (https://freesound.org/people/lonemonk/sounds/185577) by lonemok, license CC BY 3.0
 

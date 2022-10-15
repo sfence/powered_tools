@@ -6,4 +6,6 @@ dofile(modpath.."/chainsaw.lua")
 dofile(modpath.."/brush_cutter.lua")
 dofile(modpath.."/brush_cutter_string.lua")
 dofile(modpath.."/brush_cutter_blade.lua")
+dofile(modpath.."/algae_collector.lua")
+dofile(modpath.."/crumbly_exchanger.lua")
 

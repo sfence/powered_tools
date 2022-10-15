@@ -7,6 +7,9 @@ powered_tools.brush_cutter_blade_groups = {}
 powered_tools.chainsaw_nodes = {}
 powered_tools.chainsaw_groups = {}
 
+powered_tools.algae_collector_nodes = {}
+powered_tools.algae_collector_groups = {}
+
 local next_line_offset = 8
 if minetest.get_modpath("hades_core") then
   next_line_offset = 10
@@ -34,6 +37,9 @@ function powered_tools.is_valid_for_brush_cutter_blade(nodename, def)
 end
 function powered_tools.is_valid_for_chainsaw(nodename, def)
   return is_valid_for(nodename, def, powered_tools.chainsaw_nodes, powered_tools.chainsaw_groups)
+end
+function powered_tools.is_valid_for_algae_collector(nodename, def)
+  return is_valid_for(nodename, def, powered_tools.algae_collector_nodes, powered_tools.algae_collector_groups)
 end
 
 local break_enable = powered_tools.settings.break_enable
@@ -162,5 +168,69 @@ function powered_tools.tool_body_on_use(itemstack, user, pointed_thing)
     minetest.chat_send_player(player_name, S("No usefull item found under."))
   end
   return nil
+end
+
+local algae_collector_range = powered_tools.settings.algae_collector_range
+
+function powered_tools.algae_collector_do_use(self, itemstack, meta, user, pointed_thing)
+  local item_name = itemstack:get_name()
+  for x=-algae_collector_range,algae_collector_range do
+    for y=0,1 do
+      for z=-algae_collector_range,algae_collector_range do
+        local pos = vector.add(pointed_thing.under, vector.new(x, y, z))
+        local node = minetest.get_node(pos)
+        local def = minetest.registered_nodes[node.name]
+        if powered_tools.is_valid_for_algae_collector(node.name, def) then
+          if not self:use_energy(itemstack, meta, self.energy_per_use) then
+            return itemstack
+          end
+          local inv = user:get_inventory()
+          local drops = minetest.get_node_drops(node, item_name)
+          for _, drop in pairs(drops) do
+            drop = inv:add_item("main", drop)
+            if (drop:get_count()>0) then
+              minetest.add_item(pos, drop)
+            end
+          end
+          minetest.remove_node(pos)
+        else
+          if (x==0) and (y==0) and (z==0) then
+            self:use_energy(itemstack, meta, self.energy_per_use)
+            return itemstack, true
+          end
+        end
+      end
+    end
+  end
+  return itemstack, true
+end
+
+function powered_tools.crumbly_exchanger_do_use(self, itemstack, meta, user, pointed_thing)
+  local item_name = itemstack:get_name()
+  local pos = pointed_thing.under
+  local node = minetest.get_node(pos)
+  local crumbly = minetest.get_item_group(node.name, "crumbly")
+  if (crumbly>1) then
+    local inv = user:get_inventory()
+    local index = user:get_wield_index()+next_line_offset
+    local nextlinestack = inv:get_stack("main", index)
+    crumbly = minetest.get_item_group(nextlinestack:get_name(), "crumbly")
+    if (crumbly>1) then
+      if not self:use_energy(itemstack, meta, self.energy_per_use) then
+        return itemstack, false
+      end
+      local drops = minetest.get_node_drops(node, item_name)
+      for _, drop in pairs(drops) do
+        drop = inv:add_item("main", drop)
+        if (drop:get_count()>0) then
+          minetest.add_item(pos, drop)
+        end
+      end
+      minetest.swap_node(pos, {name="air"})
+      minetest.item_place_node(nextlinestack, user, pointed_thing)
+      return itemstack, true
+    end
+  end
+  return itemstack, false
 end
 
