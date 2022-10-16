@@ -227,7 +227,8 @@ function powered_tools.crumbly_exchanger_do_use(self, itemstack, meta, user, poi
         end
       end
       minetest.swap_node(pos, {name="air"})
-      minetest.item_place_node(nextlinestack, user, pointed_thing)
+      nextlinestack = minetest.item_place_node(nextlinestack, user, pointed_thing)
+      inv:set_stack("main", index, nextlinestack)
       return itemstack, true
     end
   end

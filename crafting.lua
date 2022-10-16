@@ -109,7 +109,6 @@ minetest.register_craft({
     replacements = {
       {"basic_materials:copper_wire","basic_materials:empty_spool"},
     },
-pi
   })
 
 minetest.register_craft({
@@ -122,7 +121,6 @@ minetest.register_craft({
     replacements = {
       {"basic_materials:copper_wire","basic_materials:empty_spool"},
     },
-pi
   })
 
 if minetest.get_modpath("power_generators") then

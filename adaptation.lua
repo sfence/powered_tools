@@ -45,13 +45,30 @@ if minetest.get_modpath("default") then
 end
 
 if minetest.get_modpath("hades_core") then
+  -- leaves
+  powered_tools.add_brush_cutter_blade_node("hades_trees:leaves");
+  powered_tools.add_brush_cutter_blade_node("hades_trees:pale_leaves");
+  powered_tools.add_brush_cutter_blade_node("hades_trees:birch_leaves");
+  powered_tools.add_brush_cutter_blade_node("hades_trees:jungle_leaves");
+  powered_tools.add_brush_cutter_blade_node("hades_trees:cultivated_jungle_leaves");
+  powered_tools.add_brush_cutter_blade_node("hades_trees:canvas_leaves");
+  powered_tools.add_brush_cutter_blade_node("hades_trees:banana_leaves");
+  powered_tools.add_brush_cutter_blade_node("hades_trees:charred_leaves");
+  -- saplings
+  powered_tools.add_brush_cutter_blade_node("hades_trees:sapling"); 
+  powered_tools.add_brush_cutter_blade_node("hades_trees:pale_sapling"); 
+  powered_tools.add_brush_cutter_blade_node("hades_trees:birch_sapling"); 
+  powered_tools.add_brush_cutter_blade_node("hades_trees:jungle_sapling"); 
+  powered_tools.add_brush_cutter_blade_node("hades_trees:cultivated_jungle_sapling"); 
+  powered_tools.add_brush_cutter_blade_node("hades_trees:canvas_sapling"); 
+  powered_tools.add_brush_cutter_blade_node("hades_trees:banana_sapling"); 
   -- trees
   powered_tools.add_chainsaw_node("hades_trees:tree");
   powered_tools.add_chainsaw_node("hades_trees:pale_tree");
   powered_tools.add_chainsaw_node("hades_trees:birch_tree");
-  powered_tools.add_chainsaw_node("hades_trees:jungletree");
-  powered_tools.add_chainsaw_node("hades_trees:cjtree");
+  powered_tools.add_chainsaw_node("hades_trees:jungle_tree");
   powered_tools.add_chainsaw_node("hades_trees:canvas_tree");
+  powered_tools.add_chainsaw_node("hades_trees:banana_tree");
   powered_tools.add_chainsaw_node("hades_trees:chared_tree");
 end
 
