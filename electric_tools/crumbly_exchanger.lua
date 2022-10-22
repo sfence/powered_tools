@@ -32,6 +32,6 @@ function crumbly_exchanger:cb_do_use(itemstack, meta, user, pointed_thing)
 end
 
 crumbly_exchanger:register_tool({
-    inventory_image = "powered_tools_crumbly_exchanger.png^powered_tools_crumbly_exchanger_electric_body.png",
+    inventory_image = "powered_tools_crumbly_exchanger_electric.png",
   })
 

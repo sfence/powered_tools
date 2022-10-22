@@ -32,6 +32,6 @@ function algae_collector:cb_do_use(itemstack, meta, user, pointed_thing)
 end
 
 algae_collector:register_tool({
-    inventory_image = "powered_tools_algae_collector.png^powered_tools_algae_collector_electric_body.png",
+    inventory_image = "powered_tools_algae_collector_electric.png",
   })
 
