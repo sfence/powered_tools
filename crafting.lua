@@ -3,6 +3,8 @@ local adaptation = powered_tools.adaptation
 
 local N = adaptation_lib.get_item_name
 
+adaptation_lib.check_keys_aviable("[powered_tools] Crafting: ", adaptation, {"steel_bar", "steel_strip", "electric_motor", "battery"})
+
 minetest.register_craft({
     output = "powered_tools:brush_cutter_blade",
     recipe = {
