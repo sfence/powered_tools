@@ -1,28 +1,7 @@
 
-local materials = {
-  battery = "default:mese_crystal",
-  steel = "default:iron_ingot",
-  steel_bar = "basic_materials:steel_bar",
-  steel_strip = "basic_materials:steel_strip",
-  
-  electric_motor = "basic_materials:motor",
-}
+local adaptation = powered_tools.adaptation
 
-if minetest.get_modpath("hades_core") then
-  materials.battery = "default:mese_crystal"
-end
-
-if minetest.get_modpath("technic") then
-  materials.battery = "technic:battery"
-end
-
-if minetest.get_modpath("hades_technic") then
-  materials.battery = "hades_technic:battery_lithium"
-end
-
-if minetest.get_modpath("power_generators") then
-  materials.electric_motor = "power_generators:electric_engine_p6"
-end
+local N = adaptation_lib.get_item_name
 
 minetest.register_craft({
     output = "powered_tools:brush_cutter_blade",
@@ -78,9 +57,9 @@ minetest.register_craft({
 minetest.register_craft({
     output = "powered_tools:brush_cutter_electric_body",
     recipe = {
-      {materials.battery,materials.electric_motor,"basic_materials:plastic_sheet"},
-      {materials.battery,materials.steel_bar,"basic_materials:gear_steel"},
-      {"basic_materials:copper_wire",materials.steel_bar,"basic_materials:gear_steel"},
+      {N(adaptation.battery),N(adaptation.electric_motor),"basic_materials:plastic_sheet"},
+      {N(adaptation.battery),N(adaptation.steel_bar),"basic_materials:gear_steel"},
+      {"basic_materials:copper_wire",N(adaptation.steel_bar),"basic_materials:gear_steel"},
     },
     replacements = {
       {"basic_materials:copper_wire","basic_materials:empty_spool"},
@@ -90,9 +69,9 @@ minetest.register_craft({
 minetest.register_craft({
     output = "powered_tools:chainsaw_electric_body",
     recipe = {
-      {materials.battery,materials.steel_strip,"basic_materials:plastic_sheet"},
-      {materials.battery,materials.steel_strip,"basic_materials:gear_steel"},
-      {"basic_materials:copper_wire",materials.electric_motor,"basic_materials:gear_steel"},
+      {N(adaptation.battery),N(adaptation.steel_strip),"basic_materials:plastic_sheet"},
+      {N(adaptation.battery),N(adaptation.steel_strip),"basic_materials:gear_steel"},
+      {"basic_materials:copper_wire",N(adaptation.electric_motor),"basic_materials:gear_steel"},
     },
     replacements = {
       {"basic_materials:copper_wire","basic_materials:empty_spool"},
@@ -102,9 +81,9 @@ minetest.register_craft({
 minetest.register_craft({
     output = "powered_tools:algae_collector_electric",
     recipe = {
-      {materials.battery,materials.steel_strip,"basic_materials:plastic_sheet"},
-      {materials.battery,materials.steel_strip,"pipeworks:pump_off"},
-      {"basic_materials:copper_wire",materials.electric_motor,"basic_materials:gear_steel"},
+      {N(adaptation.battery),N(adaptation.steel_strip),"basic_materials:plastic_sheet"},
+      {N(adaptation.battery),N(adaptation.steel_strip),"pipeworks:pump_off"},
+      {"basic_materials:copper_wire",N(adaptation.electric_motor),"basic_materials:gear_steel"},
     },
     replacements = {
       {"basic_materials:copper_wire","basic_materials:empty_spool"},
@@ -114,9 +93,9 @@ minetest.register_craft({
 minetest.register_craft({
     output = "powered_tools:crumbly_exchanger_electric",
     recipe = {
-      {materials.battery,materials.steel_strip,"basic_materials:plastic_sheet"},
-      {materials.battery,materials.steel_strip,"pipeworks:sand_tube_1"},
-      {"basic_materials:copper_wire",materials.electric_motor,"basic_materials:gear_steel"},
+      {N(adaptation.battery),N(adaptation.steel_strip),"basic_materials:plastic_sheet"},
+      {N(adaptation.battery),N(adaptation.steel_strip),"pipeworks:sand_tube_1"},
+      {"basic_materials:copper_wire",N(adaptation.electric_motor),"basic_materials:gear_steel"},
     },
     replacements = {
       {"basic_materials:copper_wire","basic_materials:empty_spool"},
@@ -129,31 +108,31 @@ if minetest.get_modpath("power_generators") then
         output = "powered_tools:brush_cutter_body",
         recipe = {
           {"power_generators:combustion_engine_fuel_tank","power_generators:combustion_engine_two_cylinders", "basic_materials:plastic_sheet"},
-          {"",materials.steel_bar,"basic_materials:gear_steel"},
-          {"",materials.steel_bar,"basic_materials:gear_steel"},
+          {"",N(adaptation.steel_bar),"basic_materials:gear_steel"},
+          {"",N(adaptation.steel_bar),"basic_materials:gear_steel"},
         },
       })
     minetest.register_craft({
         output = "powered_tools:chainsaw_body",
         recipe = {
-          {"",materials.steel_strip,"basic_materials:plastic_sheet"},
-          {"",materials.steel_strip,"basic_materials:gear_steel"},
+          {"",N(adaptation.steel_strip),"basic_materials:plastic_sheet"},
+          {"",N(adaptation.steel_strip),"basic_materials:gear_steel"},
           {"power_generators:combustion_engine_fuel_tank","power_generators:combustion_engine_two_cylinders","basic_materials:gear_steel"},
         },
       })
     minetest.register_craft({
         output = "powered_tools:algae_collector_off",
         recipe = {
-          {"",materials.steel_strip,"basic_materials:plastic_sheet"},
-          {"",materials.steel_strip,"pipeworks:pump_off"},
+          {"",N(adaptation.steel_strip),"basic_materials:plastic_sheet"},
+          {"",N(adaptation.steel_strip),"pipeworks:pump_off"},
           {"power_generators:combustion_engine_fuel_tank","power_generators:combustion_engine_two_cylinders","basic_materials:gear_steel"},
         },
       })
     minetest.register_craft({
         output = "powered_tools:crumbly_exchanger_off",
         recipe = {
-          {"",materials.steel_strip,"basic_materials:plastic_sheet"},
-          {"",materials.steel_strip,"pipeworks:sand_tube_1"},
+          {"",N(adaptation.steel_strip),"basic_materials:plastic_sheet"},
+          {"",N(adaptation.steel_strip),"pipeworks:sand_tube_1"},
           {"power_generators:combustion_engine_fuel_tank","power_generators:combustion_engine_two_cylinders","basic_materials:gear_steel"},
         },
       })

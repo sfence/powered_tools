@@ -10,6 +10,8 @@ local modpath = minetest.get_modpath(modname)
 
 dofile(modpath.."/setting.lua")
 
+dofile(modpath.."/adaptation.lua")
+
 dofile(modpath.."/functions.lua")
 dofile(modpath.."/api.lua")
 
@@ -20,7 +22,7 @@ if minetest.get_modpath("power_generators") then
   end
 end
 
-dofile(modpath.."/adaptation.lua")
+dofile(modpath.."/nodes_registration.lua")
 
 dofile(modpath.."/craftitems.lua")
 dofile(modpath.."/crafting.lua")

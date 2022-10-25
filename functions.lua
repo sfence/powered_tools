@@ -1,4 +1,6 @@
 
+local S = powered_tools.translator
+
 powered_tools.brush_cutter_string_nodes = {}
 powered_tools.brush_cutter_string_groups = {}
 powered_tools.brush_cutter_blade_nodes = {}
