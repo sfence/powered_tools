@@ -19,13 +19,13 @@ chainsaw:battery_data_register(
       },
   })
 
-function chainsaw:cb_do_use(itemstack, _meta, user, pointed_thing)
+function chainsaw:cb_do_use(itemstack, meta, user, pointed_thing)
   if not user then
     return itemstack
   end
   
   if pointed_thing.type=="node" then
-    local under_node = minetest.get_node(pointed_thing.under_node)
+    return powered_tools.chainsaw_do_use(self, itemstack, meta, user, pointed_thing)
   end
   
   return itemstack
